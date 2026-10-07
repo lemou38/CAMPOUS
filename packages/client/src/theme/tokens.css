@@ -200,6 +200,18 @@
   --color-switch-thumb: rgb(var(--switch-thumb, var(--surface-primary)));
   --color-table-header-text: rgb(var(--table-header-text, var(--text-secondary)));
   --color-table-header-fill: rgb(var(--table-header-fill, var(--surface-dialog)));
+  /* The code-syntax palette and the shimmer animation are painted from stylesheets, so these carry no
+   * utility today; each is declared so the registry and this file name the same colors. */
+  --color-syntax-text: rgb(var(--syntax-text));
+  --color-syntax-comment: rgb(var(--syntax-comment));
+  --color-syntax-meta: rgb(var(--syntax-meta));
+  --color-syntax-builtin: rgb(var(--syntax-builtin));
+  --color-syntax-keyword: rgb(var(--syntax-keyword));
+  --color-syntax-string: rgb(var(--syntax-string));
+  --color-syntax-attr: rgb(var(--syntax-attr));
+  --color-syntax-title: rgb(var(--syntax-title));
+  --color-shimmer-base: rgb(var(--shimmer-base) / var(--shimmer-base-alpha, 1));
+  --color-shimmer-dip: rgb(var(--shimmer-dip) / var(--shimmer-dip-alpha, 1));
 }
 
 /* The plain radius, font, type scale and shadow utilities read theme-owned properties, so a theme
