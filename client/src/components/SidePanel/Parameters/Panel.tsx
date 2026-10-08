@@ -16,6 +16,7 @@ import {
 import type { TPreset } from 'librechat-data-provider';
 import { groupParameters, countModified, hasControl, isWideParameter } from './groups';
 import { useGetEndpointsQuery, useGetStartupConfig } from '~/data-provider';
+import { useModelReasoning } from '~/hooks/Endpoint/useModelReasoning';
 import { useChatContext, useLiveAnnouncer } from '~/Providers';
 import { SaveAsPresetDialog } from '~/components/Endpoints';
 import { useSetIndexOptions, useLocalize } from '~/hooks';
@@ -38,6 +39,7 @@ export default function Parameters() {
   const { data: endpointsConfig = {} } = useGetEndpointsQuery();
   const provider = conversation?.endpoint ?? '';
   const model = conversation?.model ?? '';
+  const { modelReasoning } = useModelReasoning(endpointsConfig, provider, model);
 
   const bedrockRegions = useMemo(() => {
     return endpointsConfig?.[conversation?.endpoint ?? '']?.availableRegions ?? [];
@@ -75,9 +77,10 @@ export default function Parameters() {
       overriddenEndpointKey,
       model,
       endpointsConfig?.[provider ?? '']?.responsesApiRouting,
+      modelReasoning,
     ).map((param) => (overriddenParamsMap[param.key] as SettingDefinition) ?? param);
     return { parameters, visibleParameters };
-  }, [endpointType, endpointsConfig, model, provider, startupConfig]);
+  }, [endpointType, endpointsConfig, model, modelReasoning, provider, startupConfig]);
 
   useEffect(() => {
     if (!parameters) {
