@@ -508,6 +508,17 @@ describe('theme registry', () => {
     expect(explicit.colors['rgb-drawer-edge']).toBe('1 2 3');
   });
 
+  it('draws the light drawer edge on the sidebar role when a theme sets it', () => {
+    const colors = { 'rgb-surface-primary-alt': '20 21 22', 'rgb-surface-sidebar': '40 41 42' };
+    const theme = {
+      version: 1 as const,
+      name: 'sidebar-drawer-edge',
+      modes: { light: { colors } },
+    };
+
+    expect(resolveTheme(theme, 'light').colors['rgb-drawer-edge']).toBe('40 41 42');
+  });
+
   it('inks the default avatar in the primary text a theme sets, unless it sets the role', () => {
     const inherited = resolveTheme(
       {
@@ -1131,6 +1142,7 @@ describe('theme registry', () => {
         'rgb-border-menu': ['rgb-border-light', 'rgb-border-light'],
         'rgb-surface-composer': ['rgb-surface-chat', 'rgb-surface-chat'],
         'rgb-surface-search': ['rgb-surface-secondary', 'rgb-surface-secondary'],
+        'rgb-surface-sidebar': ['rgb-surface-primary-alt', 'rgb-surface-primary-alt'],
       };
       expect(
         Object.fromEntries(layerRoleSources.map(([role, light, dark]) => [role, [light, dark]])),
@@ -1468,6 +1480,7 @@ describe('theme registry', () => {
       ['lg', 'textLg', 'leadingLg'],
       ['xl', 'textXl', 'leadingXl'],
       ['2xl', 'text2xl', 'leading2xl'],
+      ['3xl', 'text3xl', 'leading3xl'],
     ] as const;
     const declared = (name: string) =>
       new RegExp(`--${name}:\\s*([^;]+);`).exec(tailwind)?.[1].trim();
@@ -1478,13 +1491,30 @@ describe('theme registry', () => {
     });
   });
 
-  it('keeps every bundled theme’s largest themed step below the unthemed text-3xl', () => {
-    const rem = (value: string) => parseFloat(value);
-    [
+  /** A heading never shrinks as the scale rises, and the largest themed step stays at or below
+   *  Tailwind's unthemed `text-4xl` (2.25rem). */
+  it('keeps the type scale monotonic in every bundled theme', () => {
+    const sizes = [
+      'textXs',
+      'textSm',
+      'textBase',
+      'textLg',
+      'textXl',
+      'text2xl',
+      'text3xl',
+    ] as const;
+    const appearances = [
       defaultAppearance,
-      { ...defaultAppearance, ...clickHouseTheme.modes.light?.appearance },
-    ].forEach((appearance) => {
-      expect(rem(appearance.text2xl)).toBeLessThan(1.875);
+      ...Object.values(clickHouseTheme.modes).map((mode) => ({
+        ...defaultAppearance,
+        ...mode?.appearance,
+      })),
+    ];
+
+    appearances.forEach((appearance) => {
+      const rems = sizes.map((size) => parseFloat(appearance[size]));
+      expect(rems).toEqual([...rems].sort((a, b) => a - b));
+      expect(rems[rems.length - 1]).toBeLessThanOrEqual(2.25);
     });
   });
 

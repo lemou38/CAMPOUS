@@ -138,6 +138,7 @@ export const layerRoleSources: ReadonlyArray<
   ['rgb-border-menu', 'rgb-border-light', 'rgb-border-light'],
   ['rgb-surface-composer', 'rgb-surface-chat', 'rgb-surface-chat'],
   ['rgb-surface-search', 'rgb-surface-secondary', 'rgb-surface-secondary'],
+  ['rgb-surface-sidebar', 'rgb-surface-primary-alt', 'rgb-surface-primary-alt'],
 ];
 
 export function layerRoleFallbacks(colors: IThemeRGB, mode: ThemeMode): IThemeRGB {
@@ -277,12 +278,14 @@ export const themeAppearanceProperties: Readonly<
   text2xs: '--theme-text-2xs',
   text1xs: '--theme-text-1xs',
   text1sm: '--theme-text-1sm',
+  text3xl: '--theme-text-3xl',
   leadingXs: '--theme-text-xs-leading',
   leadingSm: '--theme-text-sm-leading',
   leadingBase: '--theme-text-base-leading',
   leadingLg: '--theme-text-lg-leading',
   leadingXl: '--theme-text-xl-leading',
   leading2xl: '--theme-text-2xl-leading',
+  leading3xl: '--theme-text-3xl-leading',
   dialogStroke: '--theme-dialog-stroke',
   dialogPaddingX: '--theme-dialog-padding-x',
   dialogHeaderGap: '--theme-dialog-header-gap',
@@ -380,12 +383,14 @@ export const defaultAppearance: IThemeAppearance = Object.freeze({
   text2xs: '0.6875rem',
   text1xs: '0.8125rem',
   text1sm: '0.9375rem',
+  text3xl: '1.875rem',
   leadingXs: 'calc(1 / 0.75)',
   leadingSm: 'calc(1.25 / 0.875)',
   leadingBase: 'calc(1.5 / 1)',
   leadingLg: 'calc(1.75 / 1.125)',
   leadingXl: 'calc(1.75 / 1.25)',
   leading2xl: 'calc(2 / 1.5)',
+  leading3xl: 'calc(2.25 / 1.875)',
   dialogStroke: '0px',
   dialogPaddingX: '1.5rem',
   dialogHeaderGap: '0.375rem',
@@ -723,7 +728,7 @@ export function resolveTheme(theme: ThemeDefinition, mode: ThemeMode): ResolvedT
   const drawerEdgeSource =
     mode === 'dark'
       ? customColors?.['rgb-border-xheavy']
-      : customColors?.['rgb-surface-primary-alt'];
+      : (customColors?.['rgb-surface-sidebar'] ?? customColors?.['rgb-surface-primary-alt']);
   const drawerEdgeFallback: Partial<IThemeRGB> =
     customColors?.['rgb-drawer-edge'] === undefined && drawerEdgeSource !== undefined
       ? { 'rgb-drawer-edge': drawerEdgeSource }

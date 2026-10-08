@@ -104,6 +104,7 @@ export const themeColorTokens = Object.freeze([
   'rgb-border-menu',
   'rgb-surface-composer',
   'rgb-surface-search',
+  'rgb-surface-sidebar',
   'rgb-surface-disabled',
   'rgb-text-disabled',
   'rgb-border-disabled',
@@ -475,12 +476,14 @@ const appearanceValidators = {
   text2xs: isLength,
   text1xs: isLength,
   text1sm: isLength,
+  text3xl: isLength,
   leadingXs: isLineHeight,
   leadingSm: isLineHeight,
   leadingBase: isLineHeight,
   leadingLg: isLineHeight,
   leadingXl: isLineHeight,
   leading2xl: isLineHeight,
+  leading3xl: isLineHeight,
   /** A dialog's edge stroke width, inline padding and title-to-description gap, and its title's
    *  size, leading, weight and family. */
   dialogStroke: isLength,
@@ -529,7 +532,7 @@ export const themeAppearanceTokens = Object.freeze(
  * Bumped by hand when a release changes what resolving a theme emits without changing its roles
  * (a palette value, a fallback derivation, an emitted attribute), so cached entries are rebuilt.
  */
-export const THEME_CACHE_EPOCH = 1 as const;
+export const THEME_CACHE_EPOCH = 2 as const;
 
 /**
  * Names the role set a stored resolved theme was built against: any color, brand or appearance
