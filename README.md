@@ -284,6 +284,11 @@ CAMPOUS exists thanks to the LibreChat project and all its contributors:
 - **[Locize](https://locize.com)** — Translation management tools supporting multiple languages
 - **All LibreChat contributors** — For building an incredible open-source AI platform
 
+### CAMPOUS Acknowledgements
+
+- **STUDENT CAMPUCE** — Merci pour les avantages offerts aux étudiants, qui rendent ce projet accessible à tous
+- **[AI-GRID](https://ai-grid.com)** — Merci à notre partenaire AI-GRID pour les clés API gratuites fournies chaque mois, permettant à tous les étudiants d'accéder aux modèles IA
+
 <p align="center">
   <a href="https://locize.com" target="_blank" rel="noopener noreferrer">
     <img src="https://github.com/user-attachments/assets/d6b70894-6064-475e-bb65-92a9e23e0077" alt="Locize Logo" height="50">
