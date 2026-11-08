@@ -1,10 +1,9 @@
 <p align="center">
-  <a href="https://librechat.ai">
+  <a href="https://github.com/lemou38/CAMPOUS">
     <img src="client/public/assets/logo.svg" height="256">
   </a>
-  <h1 align="center">
-    <a href="https://librechat.ai">LibreChat</a>
-  </h1>
+  <h1 align="center">CAMPOUS</h1>
+  <p align="center"><strong>Your AI Agent — All-in-one AI conversations platform</strong></p>
 </p>
 
 <p align="center">
@@ -13,239 +12,265 @@
 </p>
 
 <p align="center">
-  <a href="https://discord.librechat.ai"> 
+  <a href="https://github.com/lemou38/CAMPOUS">
     <img
-      src="https://img.shields.io/discord/1086345563026489514?label=&logo=discord&style=for-the-badge&logoWidth=20&logoColor=white&labelColor=000000&color=blueviolet">
+      src="https://img.shields.io/badge/GITHUB-181717.svg?style=for-the-badge&logo=github&logoColor=white&labelColor=000000&logoWidth=20">
   </a>
-  <a href="https://www.youtube.com/@LibreChat"> 
+  <a href="https://github.com/lemou38/CAMPOUS/releases">
     <img
-      src="https://img.shields.io/badge/YOUTUBE-red.svg?style=for-the-badge&logo=youtube&logoColor=white&labelColor=000000&logoWidth=20">
+      src="https://img.shields.io/badge/RELEASES-blue.svg?style=for-the-badge&logo=tag&logoColor=white&labelColor=000000&logoWidth=20">
   </a>
-  <a href="https://docs.librechat.ai"> 
+  <a href="https://docs.librechat.ai">
     <img
       src="https://img.shields.io/badge/DOCS-blue.svg?style=for-the-badge&logo=read-the-docs&logoColor=white&labelColor=000000&logoWidth=20">
   </a>
-  <a aria-label="Sponsors" href="https://github.com/sponsors/danny-avila">
+  <a href="LICENSE">
     <img
-      src="https://img.shields.io/badge/SPONSORS-brightgreen.svg?style=for-the-badge&logo=github-sponsors&logoColor=white&labelColor=000000&logoWidth=20">
+      src="https://img.shields.io/badge/LICENSE-MIT-green.svg?style=for-the-badge&logo=open-source-initiative&logoColor=white&labelColor=000000&logoWidth=20">
   </a>
 </p>
 
-<p align="center">
-<a href="https://railway.com/deploy/librechat-official?referralCode=HI9hWz&utm_medium=integration&utm_source=readme&utm_campaign=librechat">
-  <img src="https://railway.com/button.svg" alt="Deploy on Railway" height="30">
-</a>
-<a href="https://zeabur.com/templates/0X2ZY8">
-  <img src="https://zeabur.com/button.svg" alt="Deploy on Zeabur" height="30"/>
-</a>
-<a href="https://template.cloud.sealos.io/deploy?templateName=librechat">
-  <img src="https://raw.githubusercontent.com/labring-actions/templates/main/Deploy-on-Sealos.svg" alt="Deploy on Sealos" height="30">
-</a>
-</p>
+---
 
-<p align="center">
-  <a href="https://www.librechat.ai/docs/translation">
-    <img 
-      src="https://img.shields.io/badge/dynamic/json.svg?style=for-the-badge&color=2096F3&label=locize&query=%24.translatedPercentage&url=https://api.locize.app/badgedata/4cb2598b-ed4d-469c-9b04-2ed531a8cb45&suffix=%+translated" 
-      alt="Translation Progress">
-  </a>
-</p>
+## What is CAMPOUS?
 
-## 🚀 What's New in v0.8.8
+CAMPOUS is an open-source, self-hosted AI Agent platform built on [LibreChat](https://github.com/LibreChat-AI/LibreChat) (v0.8.8).  
+It unifies multiple AI model providers into a single, privacy-focused interface with a **custom CAMPOUS branding** and an integrated **AI-GRID** endpoint.
 
-- **Agent Management API (beta):** Create, discover, update, and delete Agents; manage Agent files and Skills; and authenticate machine clients through deployment-bound OIDC identities while preserving existing role and Agent access controls. Public OpenAPI and Swagger UI cover inference, events, Agent management, and Skill management.
-- **Attached workspaces (highly experimental):** Select or save a per-Agent default workspace for each managed or personal code worker, then let Agents inspect trees, read and search files, author changes, and run Bash with bounded timeouts. Personal workers support bounded self-service enrollment, readiness status, and per-Agent Git identity.
-- **Background tool controls:** Optionally cancel ordinary background tools, including attached Bash, while keeping detached Subagent execution independent.
-- **Code approval controls:** Choose **Ask**, **Allow**, or **Deny** for file writes and command execution where administrators permit it, including a **Full access** mode for trusted attached environments. File Search and Run Code also honor role grants.
-- **Manual context compaction:** Start a summarize-only turn before the context window fills while preserving recent conversation content according to the deployment's summarization policy.
-- **Context Usage:** Inspect dialogue, retained tool traffic, Agent instructions, cache, cost, and runway pressure without double-counting category subsets.
-- **Unified attachments:** Upload once and let LibreChat route content to the model or extracted text, then provision File Search and Code tools only when needed.
-- **Models:** Added GPT-6 Astra and GPT-6.1 Sol, with Responses API routing and tool-call support.
-- **Agent and chat UI:** Unified tool activity, reasoning, search, and Agent workflows; added one draggable Pinned section for chats and favorites, morphing state icons, high-contrast themes, rich-text message copying, clearer sidebar titles, and refined live phase layouts.
-- **Observability:** Inspect ordered model conversations, tool rounds, and costs in the Trace Viewer; export correlated application logs through OpenTelemetry, configure allowlisted Langfuse trace identity and metadata, tag browser diagnostics with client build IDs, and scope Insights to authorized Agents.
-- **Reliability and security:** Strengthened Agent continuation and checkpoint recovery, Redis liveness detection, DocumentDB coordination, OpenID and MCP OAuth sessions, shared-link throttling, tenant isolation, attachment bounds, and upload error handling.
+> **CAMPOUS = Your AI Agent.** Bring your own API key, chat with any model, build agents, run code, search the web — all in one place.
+
+---
+
+## Quick Start
+
+### Prerequisites
+
+- [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/install/) (v2+)
+- An AI provider API key (OpenAI, Anthropic, Google, or [AI-GRID](https://ai-grid.com))
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/lemou38/CAMPOUS.git
+cd CAMPOUS
+```
+
+### 2. Configure environment variables
+
+```bash
+cp .env.example .env
+```
+
+Generate your secret keys and fill in the `.env` file:
+
+```bash
+# Generate secure random secrets
+openssl rand -hex 32  # -> ADMIN_PANEL_SESSION_SECRET
+openssl rand -hex 32  # -> JWT_SECRET
+openssl rand -hex 32  # -> JWT_REFRESH_SECRET
+openssl rand -hex 32  # -> CREDS_KEY
+openssl rand -hex 16  # -> CREDS_IV
+```
+
+### 3. Configure AI endpoints (optional)
+
+```bash
+cp librechat.example.yaml librechat.yaml
+```
+
+Edit `librechat.yaml` to add your AI provider endpoints (OpenAI, Anthropic, Google, AI-GRID, custom endpoints, etc.).
+
+### 4. Start the stack
+
+```bash
+docker compose up -d
+```
+
+CAMPOUS will be available at **http://localhost:3080**.
+
+---
+
+## Features
+
+CAMPOUS inherits all LibreChat features and adds custom branding, an AI-GRID endpoint integration, and a tailored user experience.
+
+### Core Features
+
+- **Multi-Model AI Chat** — OpenAI, Anthropic (Claude), Google (Gemini), Azure OpenAI, AWS Bedrock, Vertex AI, and any OpenAI-compatible API via Custom Endpoints
+- **AI-GRID Integration** — Pre-configured endpoint for AI-GRID API access
+- **AI Agents** — Build no-code custom assistants with tools, file search, code execution, and MCP support
+- **Code Interpreter** — Sandboxed execution in Python, Node.js, Go, C/C++, Java, PHP, Rust, and Fortran
+- **Web Search** — Search the internet and enrich your AI context with real-time information
+- **Code Artifacts** — Generate React, HTML, and Mermaid content directly in chat
+- **Image Generation** — Text-to-image with GPT-Image-1, Stable Diffusion, Flux, or MCP servers
+- **Multimodal & File Interactions** — Upload images and files, chat with documents
+- **Multilingual UI** — 30+ languages including English, French, Chinese, Arabic, Spanish, and more
+- **Reasoning UI** — Dynamic Chain-of-Thought display for models like DeepSeek-R1
+- **Customizable Interface** — Light, dark, system, and high-contrast themes with CAMPOUS branding
+- **Resumable Streams** — Never lose a response; auto-reconnect on connection drops
+- **Speech & Audio** — Speech-to-Text and Text-to-Speech support
+- **Import & Export** — Import from ChatGPT, Chatbot UI; export as markdown, text, JSON, or screenshots
+- **Multi-User & Secure Access** — OAuth2, LDAP, Email login; built-in moderation and token spend tools
+- **Admin Panel** — Browser-based UI to manage users, groups, roles, and configuration
+- **Observability** — OpenTelemetry and Langfuse integration for traces and insights
+
+### Agent Features
+
+- **Agent Marketplace** — Discover and deploy community-built agents
+- **Skills** — Reusable `SKILL.md` instruction bundles for agent workflows
+- **Subagents** — Delegate focused work to isolated child agent runs
+- **Agent Management API** — Automate Agent, file, and Skill management with OIDC clients
+- **MCP Support** — Model Context Protocol for tools and integrations
+- **Attached Workspaces** (experimental) — Agents can inspect, search, edit files, and run Bash
+
+### Presets & Context Management
+
+- Create, save, and share custom presets
+- Switch between AI endpoints and presets mid-chat
+- Edit, resubmit, and continue messages with conversation branching
+- Fork messages and conversations for advanced context control
+- Manual context compaction on demand
+
+---
+
+## Configuration
+
+CAMPOUS is configured through three main files:
+
+| File | Purpose | Required |
+|------|---------|----------|
+| `.env` | Environment variables (secrets, database, endpoints) | Yes |
+| `librechat.yaml` | AI endpoint definitions and model configuration | Recommended |
+| `docker-compose.override.yml` | Docker overrides for local development | Optional |
+
+Templates are provided:
+- `.env.example` — Complete documented template with all variables
+- `librechat.example.yaml` — Example AI endpoint configuration
+- `docker-compose.override.yml.example` — Example Docker override
+
+For detailed configuration options, see the [LibreChat documentation](https://docs.librechat.ai/).
+
+---
+
+## Docker Deployment
+
+### Standard deployment
+
+```bash
+docker compose up -d
+```
+
+### With override (local development)
+
+```bash
+cp docker-compose.override.yml.example docker-compose.override.yml
+# Edit as needed, then:
+docker compose up -d
+```
+
+### Check status
+
+```bash
+docker compose ps
+docker compose logs -f api
+```
+
+### Stop the stack
+
+```bash
+docker compose down
+```
+
+---
+
+## CAMPOUS Customization
+
+CAMPOUS adds the following customizations over LibreChat:
+
+- **Custom branding** — CAMPOUS logo, colors, and interface styling
+- **Custom welcome page** — CAMPOUS-themed landing page
+- **Custom footer** — CAMPOUS attribution
+- **AI-GRID endpoint** — Pre-configured in `librechat.example.yaml` as a custom endpoint
+- **Security hardening** — Hardened `docker-compose.yml` with secure defaults
+- **Comprehensive `.gitignore`** — All secrets, configs, and personal data excluded from version control
+
+---
+
+## Security
+
+CAMPOUS is designed with security in mind:
+
+- **No secrets in Git** — `.env`, `librechat.yaml`, and `docker-compose.override.yml` are gitignored
+- **User-provided API keys** — Each user enters their own API key via the interface (`user_provided` mode)
+- **Secure defaults** — `POSTGRES_PASSWORD`, `JWT_SECRET`, and `CREDS_KEY` must be set by the deployer
+- **No personal data exposed** — MongoDB data, logs, and user conversations are gitignored
+
+### Before deploying to production:
+
+1. Generate all secret keys with `openssl rand -hex 32`
+2. Set a strong `POSTGRES_PASSWORD` in `.env`
+3. Enable HTTPS via a reverse proxy (nginx, Caddy, Traefik)
+4. Review the [LibreChat deployment guide](https://docs.librechat.ai/installation/docker_compose)
+
+---
+
+## Upstream Project
+
+CAMPOUS is based on [LibreChat](https://github.com/LibreChat-AI/LibreChat) v0.8.8 by [Danny Avila](https://github.com/danny-avila).
+
+All credit for the core platform goes to the LibreChat team and contributors. CAMPOUS adds custom branding, AI-GRID integration, and deployment-specific configuration.
+
+### What's New in v0.8.8 (upstream)
+
+- **Agent Management API (beta)** — Create, discover, update, and delete Agents with OIDC authentication
+- **Attached workspaces (experimental)** — Agents inspect, read, search, edit files, and run Bash
+- **Background tool controls** — Cancel ordinary background tools while keeping Subagents independent
+- **Code approval controls** — Ask, Allow, or Deny for file writes and command execution
+- **Manual context compaction** — Summarize before the context window fills
+- **Context Usage inspector** — Dialogue, tool traffic, Agent instructions, cache, cost, and runway
+- **Unified attachments** — Upload once, route to model or extracted text
+- **New models** — GPT-6 Astra and GPT-6.1 Sol with Responses API routing
+- **Enhanced Agent and chat UI** — Unified tool activity, reasoning, search, Pinned section, high-contrast themes
+- **Observability** — Trace Viewer, OpenTelemetry, Langfuse integration, Insights scoping
+- **Reliability and security** — Agent continuation, checkpoint recovery, Redis liveness, tenant isolation
 
 Read the [full v0.8.8 changelog](https://www.librechat.ai/changelog/v0.8.8).
 
-# ✨ Features
+---
 
-- 🖥️ **UI & Experience** inspired by ChatGPT with enhanced design and features
+## Resources
 
-- 🤖 **AI Model Selection**:  
-  - Anthropic (Claude), AWS Bedrock, OpenAI, Azure OpenAI, Google, Vertex AI, OpenAI Responses API (incl. Azure)
-  - [Custom Endpoints](https://www.librechat.ai/docs/quick_start/custom_endpoints): Use any OpenAI-compatible API with LibreChat, no proxy required
-  - Compatible with [Local & Remote AI Providers](https://www.librechat.ai/docs/configuration/librechat_yaml/ai_endpoints):
-    - Ollama, [AMD Lemonade](https://lemonade-server.ai/), groq, Cohere, Mistral AI, Apple MLX, koboldcpp, together.ai,
-    - OpenRouter, Helicone, Perplexity, ShuttleAI, Deepseek, Qwen, and more
-
-- 🔧 **[Code Interpreter API](https://www.librechat.ai/docs/features/code_interpreter)**: 
-  - Secure, Sandboxed Execution in Python, Node.js (JS/TS), Go, C/C++, Java, PHP, Rust, and Fortran
-  - Seamless File Handling: Upload, process, and download files directly
-  - No Privacy Concerns: Fully isolated and secure execution
-  - Open-Source & Self-Hostable: powered by [ClickHouse/code-interpreter](https://github.com/ClickHouse/code-interpreter)
-
-- 🔦 **Agents & Tools Integration**:  
-  - **[LibreChat Agents](https://www.librechat.ai/docs/features/agents)**:
-    - No-Code Custom Assistants: Build specialized, AI-driven helpers
-    - Agent Marketplace: Discover and deploy community-built agents
-    - Collaborative Sharing: Share agents with specific users and groups
-    - Flexible & Extensible: Use MCP Servers, tools, file search, code execution, and more
-    - [Skills](https://www.librechat.ai/docs/features/skills): Create reusable `SKILL.md` instruction bundles for manual, automatic, or always-on agent workflows
-    - [Agent Plugins](https://www.librechat.ai/docs/features/agent_plugins): Experimentally bundle deployment Skills and MCP servers into startup-loaded packages
-    - [Subagents](https://www.librechat.ai/docs/features/subagents): Delegate focused work to isolated child agent runs with their own context windows
-    - Agent Management API: Automate Agent, file, and Skill management with deployment-bound OIDC clients
-    - Attached Code Workspaces: Let Agents inspect, search, edit, and run commands in managed or personal workspaces (highly experimental)
-    - Compatible with Custom Endpoints, OpenAI, Azure, Anthropic, AWS Bedrock, Google, Vertex AI, Responses API, and more
-    - [Model Context Protocol (MCP) Support](https://modelcontextprotocol.io/clients#librechat) for Tools
-
-- 🔍 **Web Search**:  
-  - Search the internet and retrieve relevant information to enhance your AI context
-  - Combines search providers, content scrapers, and result rerankers for optimal results
-  - **Customizable Jina Reranking**: Configure custom Jina API URLs for reranking services
-  - **[Learn More →](https://www.librechat.ai/docs/features/web_search)**
-
-- 🪄 **Generative UI with Code Artifacts**:  
-  - [Code Artifacts](https://youtu.be/GfTj7O4gmd0?si=WJbdnemZpJzBrJo3) create React, HTML, and Mermaid content directly in chat
-  - Open previews fullscreen and export Mermaid diagrams as SVG or PNG
-
-- 🎨 **Image Generation & Editing**
-  - Text-to-image and image-to-image with [GPT-Image-1](https://www.librechat.ai/docs/features/image_gen#1--openai-image-tools-recommended)
-  - Text-to-image with [Stable Diffusion](https://www.librechat.ai/docs/features/image_gen#3--stable-diffusion-local), [Flux](https://www.librechat.ai/docs/features/image_gen#4--flux), or any [MCP server](https://www.librechat.ai/docs/features/image_gen#5--model-context-protocol-mcp)
-  - Produce stunning visuals from prompts or refine existing images with a single instruction
-
-- 💾 **Presets & Context Management**:  
-  - Create, Save, & Share Custom Presets  
-  - Switch between AI Endpoints and Presets mid-chat
-  - Edit, Resubmit, and Continue Messages with Conversation branching  
-  - Create and share prompts with specific users and groups
-  - [Fork Messages & Conversations](https://www.librechat.ai/docs/features/fork) for Advanced Context control
-  - Compact long conversations on demand while preserving recent context
-
-- 💬 **Multimodal & File Interactions**:  
-  - Upload and analyze images with Claude 3, GPT-4.5, GPT-4o, o1, Llama-Vision, and Gemini 📸  
-  - Chat with Files using Custom Endpoints, OpenAI, Azure, Anthropic, AWS Bedrock, & Google 🗃️
-  - Copy messages as formatted rich text for documents, email, and collaboration apps
-
-- 🌎 **Multilingual UI**:
-  - English, 中文 (简体), 中文 (繁體), العربية, Deutsch, Español, Français, Italiano
-  - Polski, Português (PT), Português (BR), Русский, 日本語, Svenska, 한국어, Tiếng Việt
-  - Türkçe, Nederlands, עברית, Català, Čeština, Dansk, Eesti, فارسی
-  - Suomi, Magyar, Հայերեն, Bahasa Indonesia, ქართული, Latviešu, ไทย, ئۇيغۇرچە
-
-- 🧠 **Reasoning UI**:  
-  - Dynamic Reasoning UI for Chain-of-Thought/Reasoning AI models like DeepSeek-R1
-
-- 🎨 **Customizable Interface**:  
-  - Customizable Dropdown & Interface that adapts to both power users and newcomers
-  - Light, dark, system, and high-contrast appearance modes
-
-- 📈 **Observability**:
-  - Export traces and logs with OpenTelemetry and connect Langfuse for Agent and model insights
-
-- 🌊 **[Resumable Streams](https://www.librechat.ai/docs/features/resumable_streams)**:  
-  - Never lose a response: AI responses automatically reconnect and resume if your connection drops
-  - Multi-Tab & Multi-Device Sync: Open the same chat in multiple tabs or pick up on another device
-  - Production-Ready: Works from single-server setups to horizontally scaled deployments with Redis
-
-- 🗣️ **Speech & Audio**:  
-  - Chat hands-free with Speech-to-Text and Text-to-Speech  
-  - Automatically send and play Audio  
-  - Supports OpenAI, Azure OpenAI, and Elevenlabs
-
-- 📥 **Import & Export Conversations**:  
-  - Import Conversations from LibreChat, ChatGPT, Chatbot UI  
-  - Export conversations as screenshots, markdown, text, json
-
-- 🔍 **Search & Discovery**:  
-  - Search all messages/conversations
-
-- 👥 **Multi-User & Secure Access**:
-  - Multi-User, Secure Authentication with OAuth2, LDAP, & Email Login Support
-  - Built-in Moderation, and Token spend tools
-
-- 🎛️ **[Admin Panel](https://www.librechat.ai/docs/features/admin_panel)**:
-  - Browser-based UI to manage users, groups, roles, and configuration overrides
-  - Edit settings and per-role/group permissions live, without redeploying
-  - Bundled with the Docker Compose stacks for one-command setup
-
-- ⚙️ **Configuration & Deployment**:  
-  - Configure Proxy, Reverse Proxy, Docker, & many Deployment options  
-  - Use [S3 with CloudFront](https://www.librechat.ai/docs/configuration/cdn/cloudfront) for stable media links, edge delivery, signed cookies, and secured downloads
-  - Use completely local or deploy on the cloud
-
-- 📖 **Open-Source & Community**:  
-  - Completely Open-Source & Built in Public  
-  - Community-driven development, support, and feedback
-
-[For a thorough review of our features, see our docs here](https://docs.librechat.ai/) 📚
-
-## 🪶 All-In-One AI Conversations with LibreChat
-
-LibreChat is a self-hosted AI chat platform that unifies all major AI providers in a single, privacy-focused interface.
-
-Beyond chat, LibreChat provides AI Agents, Model Context Protocol (MCP) support, Artifacts, Code Interpreter, custom actions, conversation search, and enterprise-ready multi-user authentication.
-
-Open source, actively developed, and built for anyone who values control over their AI infrastructure.
+- **CAMPOUS Repository:** [github.com/lemou38/CAMPOUS](https://github.com/lemou38/CAMPOUS)
+- **LibreChat Documentation:** [docs.librechat.ai](https://docs.librechat.ai)
+- **LibreChat Changelog:** [librechat.ai/changelog](https://www.librechat.ai/changelog)
+- **LibreChat Releases:** [github.com/LibreChat-AI/LibreChat/releases](https://github.com/LibreChat-AI/LibreChat/releases)
+- **RAG API:** [github.com/LibreChat-AI/rag-api](https://github.com/LibreChat-AI/rag-api)
 
 ---
 
-## 🌐 Resources
+## Changelog
 
-**GitHub Repo:**
-  - **RAG API:** [github.com/LibreChat-AI/rag-api](https://github.com/LibreChat-AI/rag-api)
-  - **Website:** [github.com/LibreChat-AI/librechat.ai](https://github.com/LibreChat-AI/librechat.ai)
+Keep up with CAMPOUS updates by visiting the releases page:
+- [CAMPOUS Releases](https://github.com/lemou38/CAMPOUS/releases)
+- [LibreChat Changelog](https://www.librechat.ai/changelog)
 
-**Other:**
-  - **Website:** [librechat.ai](https://librechat.ai)
-  - **Documentation:** [librechat.ai/docs](https://librechat.ai/docs)
-  - **Blog:** [librechat.ai/blog](https://librechat.ai/blog)
+> **Please consult the [LibreChat changelog](https://www.librechat.ai/changelog) for breaking changes before updating from upstream.**
 
 ---
 
-## 📝 Changelog
-
-Keep up with the latest updates by visiting the releases page and notes:
-- [Releases](https://github.com/LibreChat-AI/LibreChat/releases)
-- [Changelog](https://www.librechat.ai/changelog) 
-
-**⚠️ Please consult the [changelog](https://www.librechat.ai/changelog) for breaking changes before updating.**
-
----
-
-## ⭐ Star History
-
-<p align="center">
-  <a href="https://www.star-history.com/?type=date&repos=danny-avila%2FLibreChat">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=danny-avila/LibreChat&type=date&theme=dark&legend=top-left&sealed_token=CXsk3L39t1nlibOv3pQloYwrz8R_yXxCAe1X3DG8sEnmu3PZvzSRZGf7JvisknF83yXqMwR6IcuKLolIQBulChAOseTYP1TDglfT6clOHXzspF-DJhmmsnGasrGpLfCeOEU56Bx761CJp9xDxza5rbyXW3F1GqWNtDf9pMroBq86vS70ilRWu16VyucF" />
-      <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=danny-avila/LibreChat&type=date&legend=top-left&sealed_token=CXsk3L39t1nlibOv3pQloYwrz8R_yXxCAe1X3DG8sEnmu3PZvzSRZGf7JvisknF83yXqMwR6IcuKLolIQBulChAOseTYP1TDglfT6clOHXzspF-DJhmmsnGasrGpLfCeOEU56Bx761CJp9xDxza5rbyXW3F1GqWNtDf9pMroBq86vS70ilRWu16VyucF" />
-      <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=danny-avila/LibreChat&type=date&legend=top-left&sealed_token=CXsk3L39t1nlibOv3pQloYwrz8R_yXxCAe1X3DG8sEnmu3PZvzSRZGf7JvisknF83yXqMwR6IcuKLolIQBulChAOseTYP1TDglfT6clOHXzspF-DJhmmsnGasrGpLfCeOEU56Bx761CJp9xDxza5rbyXW3F1GqWNtDf9pMroBq86vS70ilRWu16VyucF" />
-    </picture>
-  </a>
-</p>
-
-<p align="center">
-  <a href="https://trendshift.io/repositories/4685" target="_blank" style="padding: 10px;">
-    <img src="https://trendshift.io/api/badge/repositories/4685" alt="LibreChat-AI%2FLibreChat | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/>
-  </a>
-  <a href="https://runacap.com/ross-index/q1-24/" target="_blank" rel="noopener" style="margin-left: 20px;">
-    <img style="width: 260px; height: 56px" src="https://runacap.com/wp-content/uploads/2024/04/ROSS_badge_white_Q1_2024.svg" alt="ROSS Index - Fastest Growing Open-Source Startups in Q1 2024 | Runa Capital" width="260" height="56"/>
-  </a>
-</p>
-
----
-
-## ✨ Contributions
+## Contributions
 
 Contributions, suggestions, bug reports and fixes are welcome!
 
 For new features, components, or extensions, please open an issue and discuss before sending a PR.
 
-If you'd like to help translate LibreChat into your language, we'd love your contribution! Improving our translations not only makes LibreChat more accessible to users around the world but also enhances the overall user experience. Please check out our [Translation Guide](https://www.librechat.ai/docs/translation).
+If you'd like to help translate CAMPOUS into your language, please check out the [LibreChat Translation Guide](https://www.librechat.ai/docs/translation).
 
 ---
 
-## 💖 This project exists in its current state thanks to all the people who contribute
+## Contributors
+
+CAMPOUS exists thanks to the LibreChat project and all its contributors:
 
 <a href="https://github.com/LibreChat-AI/LibreChat/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=LibreChat-AI/LibreChat" />
@@ -253,12 +278,29 @@ If you'd like to help translate LibreChat into your language, we'd love your con
 
 ---
 
-## 🎉 Special Thanks
+## Special Thanks
 
-We thank [Locize](https://locize.com) for their translation management tools that support multiple languages in LibreChat.
+- **[LibreChat](https://github.com/LibreChat-AI/LibreChat)** — The open-source AI chat platform CAMPOUS is built on
+- **[Locize](https://locize.com)** — Translation management tools supporting multiple languages
+- **All LibreChat contributors** — For building an incredible open-source AI platform
 
 <p align="center">
   <a href="https://locize.com" target="_blank" rel="noopener noreferrer">
     <img src="https://github.com/user-attachments/assets/d6b70894-6064-475e-bb65-92a9e23e0077" alt="Locize Logo" height="50">
   </a>
+</p>
+
+---
+
+## License
+
+CAMPOUS is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+
+This project is based on LibreChat, which is also MIT licensed.
+
+---
+
+<p align="center">
+  <strong>CAMPOUS — Your AI Agent</strong><br>
+  Built with LibreChat · Maintained by <a href="https://github.com/lemou38">@lemou38</a>
 </p>
