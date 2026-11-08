@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="CAMPOUS">
+  <title>CAMPOUS</title>
+  <defs>
+    <linearGradient id="miniShell" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#D8DEE1"/>
+    </linearGradient>
+    <linearGradient id="miniGold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFD966"/>
+      <stop offset="1" stop-color="#E09A00"/>
+    </linearGradient>
+    <linearGradient id="miniCap" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3A464C"/>
+      <stop offset="1" stop-color="#1A2226"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Toque : bord + calotte -->
+  <path d="M256 44 L66 122 L256 200 L446 122 Z" fill="url(#miniCap)"/>
+  <path d="M136 132 L136 196 C136 248 190 280 256 280 C322 280 376 248 376 196 L376 132 Z" fill="url(#miniCap)"/>
+  <!-- Bandeau dore -->
+  <path d="M130 182 C130 206 186 226 256 226 C326 226 382 206 382 182 L382 206 C382 230 326 248 256 248 C186 248 130 230 130 206 Z" fill="url(#miniGold)"/>
+  <!-- Pompon -->
+  <path d="M146 190 C126 212 120 240 126 266" fill="none" stroke="url(#miniGold)" stroke-width="16" stroke-linecap="round"/>
+  <path d="M126 262 C110 262 102 272 106 284 L114 306 C118 318 132 322 141 314 L160 295 C168 287 165 275 156 270 C148 265 138 262 126 262 Z" fill="url(#miniGold)"/>
+
+  <!-- Tete -->
+  <rect x="96" y="196" width="320" height="248" rx="110" fill="url(#miniShell)"/>
+  <!-- Coques teal -->
+  <ellipse cx="98" cy="318" rx="36" ry="56" fill="#0F9B8E"/>
+  <ellipse cx="414" cy="318" rx="36" ry="56" fill="#0F9B8E"/>
+  <ellipse cx="98" cy="318" rx="22" ry="36" fill="#2FD4C8"/>
+  <ellipse cx="414" cy="318" rx="22" ry="36" fill="#2FD4C8"/>
+  <!-- Visière -->
+  <rect x="134" y="240" width="244" height="152" rx="70" fill="#12191D"/>
+  <!-- Yeux souriants -->
+  <path d="M172 300 C184 272 218 272 230 300" fill="none" stroke="#2FD4C8" stroke-width="20" stroke-linecap="round"/>
+  <path d="M282 300 C294 272 328 272 340 300" fill="none" stroke="#2FD4C8" stroke-width="20" stroke-linecap="round"/>
+  <!-- Sourire -->
+  <path d="M212 348 C226 376 286 376 300 348 Z" fill="#2FD4C8"/>
+</svg>

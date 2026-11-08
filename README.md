@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/lemou38/CAMPOUS">
-    <img src="client/public/assets/logo.svg" height="256">
+    <img src="client/public/assets/campus-mascot-readme.png" height="320">
   </a>
   <h1 align="center">CAMPOUS</h1>
   <p align="center"><strong>Your AI Agent — All-in-one AI conversations platform</strong></p>

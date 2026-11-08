@@ -1,5 +1,35 @@
 ### node etc ###
 
+# ============================================
+# CAMPOUS — Security: never commit secrets
+# ============================================
+
+# Local configuration & secrets
+.env
+.env.*
+!.env.example
+librechat.yaml
+docker-compose.override.yml
+*.local.yml
+
+# Compose dumps (can leak SESSION_SECRET in clear text)
+compose-check*.json
+docker-compose.override.backup.yml
+
+# Local tooling & audit artifacts
+generate-campous-icons.ps1
+SECURITY_AUDIT_REPORT.md
+
+# Backup files (may contain sensitive values)
+*.backup.*
+*.backup
+client/public/assets/backup-librechat/
+
+# Original mascot master (large binary, regenerated from SVG)
+/client/public/assets/CAMPOUS.png
+
+# ============================================
+
 # Logs
 data-node
 meili_data*

@@ -1,12 +1,11 @@
 <!-- Last synced with README.md: 2026-05-12 (947bfa4c40) -->
 
 <p align="center">
-  <a href="https://librechat.ai">
-    <img src="client/public/assets/logo.svg" height="256">
+  <a href="https://github.com/lemou38/CAMPOUS">
+    <img src="client/public/assets/campus-mascot-readme.png" height="320">
   </a>
-  <h1 align="center">
-    <a href="https://librechat.ai">LibreChat</a>
-  </h1>
+  <h1 align="center">CAMPOUS</h1>
+  <p align="center"><strong>你的 AI Agent —— 一站式 AI 对话平台</strong></p>
 </p>
 
 <p align="center">

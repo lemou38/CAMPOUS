@@ -1,0 +1,199 @@
+/* ═══════════════════════════════════════════════════════════
+   CAMPOUS — Brand animations
+   Premium, fluid motion inspired by modern SaaS products.
+   All animations respect prefers-reduced-motion.
+   ═══════════════════════════════════════════════════════════ */
+
+/* Mascotte floating — gentle up/down with slight rotation */
+@keyframes campus-float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-14px) rotate(-2deg);
+  }
+}
+
+/* Smoother, smaller float for sidebar/compact contexts */
+@keyframes campus-float-smooth {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* Glow pulse — behind the mascot, soft breathing light */
+@keyframes campus-glow-pulse {
+  0%, 100% {
+    opacity: 0.15;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.35;
+    transform: scale(1.15);
+  }
+}
+
+/* Fade up — entrance animation for text elements */
+@keyframes campus-fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade in — simple opacity entrance */
+@keyframes campus-fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Scale in — pop entrance with slight bounce */
+@keyframes campus-scale-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Shimmer — for premium text accent */
+@keyframes campus-shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* Orb drift — slow ambient movement for decorative blobs */
+@keyframes campus-orb-drift {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  33% {
+    transform: translate(25px, -18px);
+  }
+  66% {
+    transform: translate(-18px, 22px);
+  }
+}
+
+/* Gradient shift — animated background gradient for brand panel */
+@keyframes campus-gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* ─── Utility classes ─── */
+
+.campus-float {
+  animation: campus-float 6s ease-in-out infinite;
+}
+
+.campus-float-smooth {
+  animation: campus-float-smooth 4s ease-in-out infinite;
+}
+
+.campus-glow-pulse {
+  animation: campus-glow-pulse 5s ease-in-out infinite;
+}
+
+.campus-fade-up {
+  animation: campus-fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  opacity: 0;
+}
+
+.campus-fade-in {
+  animation: campus-fade-in 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.campus-scale-in {
+  animation: campus-scale-in 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  opacity: 0;
+}
+
+.campus-orb-drift {
+  animation: campus-orb-drift 20s ease-in-out infinite;
+}
+
+.campus-gradient-animate {
+  background-size: 200% 200%;
+  animation: campus-gradient-shift 15s ease-in-out infinite;
+}
+
+/* Stagger delays for sequential element entrance */
+.campus-delay-1 { animation-delay: 0.1s; }
+.campus-delay-2 { animation-delay: 0.25s; }
+.campus-delay-3 { animation-delay: 0.4s; }
+.campus-delay-4 { animation-delay: 0.55s; }
+.campus-delay-5 { animation-delay: 0.7s; }
+
+/* Shimmer text effect — premium gradient text */
+.campus-shimmer-text {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(255, 255, 255, 0.4) 100%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: campus-shimmer 4s linear infinite;
+}
+
+/* Hover lift — for mascot interactivity */
+.campus-hover-lift {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.4s ease;
+}
+.campus-hover-lift:hover {
+  transform: scale(1.08) translateY(-4px);
+  filter: drop-shadow(0 12px 24px rgba(66, 169, 160, 0.3));
+}
+
+/* ─── Reduced motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  .campus-float,
+  .campus-float-smooth,
+  .campus-glow-pulse,
+  .campus-orb-drift,
+  .campus-gradient-animate,
+  .campus-shimmer-text {
+    animation: none !important;
+  }
+  .campus-fade-up,
+  .campus-fade-in,
+  .campus-scale-in {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .campus-hover-lift {
+    transition: none !important;
+  }
+  .campus-hover-lift:hover {
+    transform: none !important;
+    filter: none !important;
+  }
+}
