@@ -152,6 +152,19 @@ function ExpandedPanel({
 
   return (
     <div className="border-border-inset bg-surface-sidebar flex h-full shrink-0 flex-col gap-2 border-e px-2 py-2">
+{/* CAMPOUS Brand Mascot */}
+<a
+  href="/c/new"
+  aria-label="CAMPOUS"
+  title="CAMPOUS"
+  className="group mb-2 flex h-10 w-9 items-center justify-center rounded-lg transition-all duration-200 hover:bg-surface-nav-hover"
+>
+  <img
+    src="/assets/CAMPOUS.png"
+    alt="CAMPOUS"
+    className="campus-float-smooth campus-hover-lift h-8 w-8 object-contain transition-transform duration-200 group-hover:scale-110"
+  />
+</a>
       <TooltipAnchor
         side={tooltipSide}
         description={toggleSidebarHint}

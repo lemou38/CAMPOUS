@@ -196,3 +196,24 @@ scripts/activity-labels/results/
 # Chrome user-data directories a Lighthouse run leaves in the repository root when the browser
 # is handed a Windows profile path from WSL: the whole path arrives as one directory name.
 /*lighthouse.[0-9]*/
+
+#==================================================#
+# CAMPOUS — Security additions (2026-11-08)        #
+#==================================================#
+
+# Docker compose resolved config dumps (contain SESSION_SECRET in clear)
+compose-check*.json
+
+# Backup files
+docker-compose.override.backup.yml
+*.backup.tsx.txt
+*.backup.*
+
+# Local scripts with hardcoded paths
+generate-campous-icons.ps1
+
+# Backup of original LibreChat assets
+client/public/assets/backup-librechat/
+
+# Security audit report (local only)
+SECURITY_AUDIT_REPORT.md

@@ -41,7 +41,7 @@ services:
     container_name: admin-panel
     image: registry.librechat.ai/librechat-ai/librechat-admin-panel:latest
     ports:
-      - "${ADMIN_PANEL_PORT:-3000}:3000"
+      - "127.0.0.1:${ADMIN_PANEL_PORT:-3000}:3000"
     depends_on:
       - api
     restart: always
@@ -55,7 +55,7 @@ services:
       - SESSION_COOKIE_SECURE=${ADMIN_PANEL_SESSION_COOKIE_SECURE:-false}
   mongodb:
     container_name: chat-mongodb
-    image: mongo:8.0.20
+    image: mongo:8.0
     restart: always
     user: "${UID}:${GID}"
     volumes:
@@ -74,11 +74,11 @@ services:
       - ./meili_data_v1.35.1:/meili_data
   vectordb:
     container_name: vectordb
-    image: pgvector/pgvector:0.8.0-pg15-trixie
+    image: pgvector/pgvector:0.8.0-pg15-bookworm
     environment:
       POSTGRES_DB: mydatabase
       POSTGRES_USER: myuser
-      POSTGRES_PASSWORD: mypassword
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD must be defined in .env}
     restart: always
     volumes:
       - pgdata2:/var/lib/postgresql/data

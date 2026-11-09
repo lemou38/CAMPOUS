@@ -1,3 +1,4 @@
+@import "./campus-animations.css";
 @import 'tailwindcss';
 /* Semantic colors live in the component library, in CSS, so one file feeds this app, the published
  * package and @shadcn/lint's token checking. Imported from source rather than from the built

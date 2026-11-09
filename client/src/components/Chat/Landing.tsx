@@ -141,7 +141,33 @@ export default function Landing({ centerFormOnLanding }: { centerFormOnLanding: 
     <div
       className={`flex h-full transform-gpu flex-col items-center justify-center pb-16 transition-all duration-200 ${centerFormOnLanding ? 'max-h-full sm:max-h-0' : 'max-h-full'} ${getDynamicMargin}`}
     >
-      <div ref={contentRef} className="flex flex-col items-center gap-0 p-2">
+     <div ref={contentRef} className="flex flex-col items-center gap-0 p-2">
+
+  {/* CAMPOUS — Mascotte avec animations */}
+  {!isTemporary && !name && (
+    <div className="mb-5 flex flex-col items-center">
+      {/* Glow halo */}
+      <div
+        className="campus-glow-pulse pointer-events-none absolute h-32 w-32 rounded-full blur-2xl"
+        style={{ backgroundColor: '#42A9A0' }}
+      />
+
+      {/* Floating mascot */}
+      <img
+        src="/assets/CAMPOUS.png"
+        alt="CAMPOUS"
+        className="campus-float campus-hover-lift relative z-10 h-28 w-28 object-contain drop-shadow-xl sm:h-32 sm:w-32"
+      />
+
+      {/* Accent bar */}
+      <div
+        className="campus-scale-in campus-delay-2 mt-3 h-0.5 w-12 rounded-full"
+        style={{
+          backgroundColor: '#42A9A0',
+        }}
+      />
+    </div>
+  )}
         <div
           className={`flex ${textHasMultipleLines ? 'flex-col' : 'flex-col md:flex-row'} items-center justify-center gap-2`}
         >
