@@ -1,7 +1,87 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <!-- CAMPOUS — Professional teal logo mark -->
-  <rect width="64" height="64" rx="14" fill="#0D3B36"/>
-  <path d="M20 22 L32 16 L44 22 V34 C44 40 38 46 32 48 C26 46 20 40 20 34 Z" fill="#42A9A0" opacity="0.9"/>
-  <path d="M27 32 L31 36 L39 27" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-  <circle cx="32" cy="32" r="22" stroke="#42A9A0" stroke-width="1.2" opacity="0.35"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="CAMPOUS">
+  <title>CAMPOUS</title>
+  <defs>
+    <linearGradient id="campusShell" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.55" stop-color="#F2F4F5"/>
+      <stop offset="1" stop-color="#D8DEE1"/>
+    </linearGradient>
+    <linearGradient id="campusVisor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2E3A40"/>
+      <stop offset="1" stop-color="#12191D"/>
+    </linearGradient>
+    <linearGradient id="campusGold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFD966"/>
+      <stop offset="0.5" stop-color="#F5B301"/>
+      <stop offset="1" stop-color="#E09A00"/>
+    </linearGradient>
+    <linearGradient id="campusTeal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2FD4C8"/>
+      <stop offset="1" stop-color="#0F9B8E"/>
+    </linearGradient>
+    <linearGradient id="campusHolo" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7FFFF0" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#19C7C0" stop-opacity="0.85"/>
+    </linearGradient>
+    <linearGradient id="campusCap" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3A464C"/>
+      <stop offset="1" stop-color="#1A2226"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Toque de graduation (bord) -->
+  <path d="M256 24 L60 108 L256 192 L452 108 Z" fill="url(#campusCap)"/>
+  <path d="M256 24 L60 108 L256 192 L452 108 Z" fill="none" stroke="#000" stroke-opacity="0.18" stroke-width="3"/>
+  <!-- Toque : calotte -->
+  <path d="M132 122 L132 186 C132 240 188 274 256 274 C324 274 380 240 380 186 L380 122 Z" fill="url(#campusCap)"/>
+  <!-- Toque : bandeau doré -->
+  <path d="M126 176 C126 200 184 222 256 222 C328 222 386 200 386 176 L386 202 C386 226 328 246 256 246 C184 246 126 226 126 202 Z" fill="url(#campusGold)"/>
+  <!-- Cordon + pompon (dore, devant la calotte) -->
+  <path d="M150 186 C126 210 118 240 124 270" fill="none" stroke="url(#campusGold)" stroke-width="13" stroke-linecap="round"/>
+  <path d="M124 266 C106 266 97 277 101 290 L110 316 C114 329 130 333 140 324 L162 302 C171 293 168 280 158 274 C149 268 138 266 124 266 Z" fill="url(#campusGold)"/>
+
+  <!-- Tete : casque blanc -->
+  <rect x="96" y="196" width="320" height="236" rx="104" fill="url(#campusShell)"/>
+  <!-- Coques laterales -->
+  <ellipse cx="100" cy="312" rx="34" ry="52" fill="#0F9B8E"/>
+  <ellipse cx="412" cy="312" rx="34" ry="52" fill="#0F9B8E"/>
+  <ellipse cx="100" cy="312" rx="21" ry="34" fill="url(#campusTeal)"/>
+  <ellipse cx="412" cy="312" rx="21" ry="34" fill="url(#campusTeal)"/>
+  <!-- Visière -->
+  <rect x="136" y="238" width="240" height="146" rx="66" fill="#12191D"/>
+  <rect x="136" y="238" width="240" height="146" rx="66" fill="none" stroke="#0A0E10" stroke-width="4"/>
+  <!-- Yeux (yeux souriants) -->
+  <path d="M176 292 C188 268 220 268 232 292" fill="none" stroke="#2FD4C8" stroke-width="17" stroke-linecap="round"/>
+  <path d="M280 292 C292 268 324 268 336 292" fill="none" stroke="#2FD4C8" stroke-width="17" stroke-linecap="round"/>
+  <!-- Sourire -->
+  <path d="M214 340 C226 364 286 364 298 340 Z" fill="#2FD4C8"/>
+
+  <!-- Corps -->
+  <path d="M148 432 C148 396 196 374 256 374 C316 374 364 396 364 432 L364 512 L148 512 Z" fill="url(#campusShell)"/>
+  <!-- Bretelles -->
+  <path d="M176 420 C186 400 200 392 214 390 L200 512 L164 512 Z" fill="#263238" opacity="0.9"/>
+  <path d="M336 420 C326 400 312 392 298 390 L312 512 L348 512 Z" fill="#263238" opacity="0.9"/>
+  <!-- Badge livre -->
+  <circle cx="256" cy="438" r="30" fill="#0F9B8E"/>
+  <path d="M240 432 C246 428 252 428 256 431 C260 428 266 428 272 432 L272 448 C266 444 260 444 256 447 C252 444 246 444 240 448 Z" fill="#FFFFFF"/>
+
+  <!-- Bras gauche (pouce leve) -->
+  <path d="M150 456 C118 448 98 424 94 396 L90 352 C89 336 102 324 118 328 C129 331 135 341 134 355 L133 374 L150 366 C162 359 177 364 183 376 C189 388 184 400 173 407 L150 456 Z" fill="url(#campusShell)"/>
+  <!-- Pouce -->
+  <path d="M116 300 C116 288 124 280 134 280 C144 280 152 288 152 300 L152 332 C152 342 144 350 134 350 C124 350 116 342 116 332 Z" fill="url(#campusShell)"/>
+  <!-- Bras droit (tenant la tablette) -->
+  <path d="M372 452 C398 444 414 424 418 400 L424 372 C427 358 418 347 404 349 C394 351 388 360 388 372 L386 386 L372 380 C362 375 349 380 344 390 C339 400 343 412 353 417 L372 452 Z" fill="url(#campusShell)"/>
+
+  <!-- Tablette holographique -->
+  <g transform="rotate(-12 452 350)">
+    <rect x="376" y="252" width="152" height="196" rx="18" fill="url(#campusHolo)" stroke="#EAFDFF" stroke-width="4"/>
+    <rect x="388" y="264" width="128" height="172" rx="12" fill="#0A3B3A" opacity="0.35"/>
+    <!-- Graduation -->
+    <path d="M452 288 L410 308 L452 328 L494 308 Z" fill="#FFFFFF" opacity="0.95"/>
+    <path d="M430 318 L430 340 C430 348 438 352 452 352 C466 352 474 348 474 340 L474 318" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round"/>
+    <path d="M490 310 L490 344" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+    <!-- Livre ouvert -->
+    <path d="M404 372 C414 364 434 364 452 374 C470 364 490 364 500 372 L500 402 C490 394 470 394 452 404 C434 394 414 394 404 402 Z" fill="#FFFFFF" opacity="0.95"/>
+    <path d="M452 374 L452 404" stroke="#0A3B3A" stroke-width="5"/>
+  </g>
 </svg>
