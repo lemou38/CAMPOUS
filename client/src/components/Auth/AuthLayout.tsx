@@ -217,7 +217,7 @@ function AuthLayout({
           <main className="flex flex-1 items-center justify-center px-4 py-8 sm:px-8">
             <div
               className={cn(
-                'campus-scale-in campus-delay-2 w-full rounded-2xl border border-black/5 bg-surface-primary px-5 py-8 shadow-sm dark:border-white/10 sm:px-9',
+                'w-full rounded-2xl border border-black/5 bg-surface-primary px-5 py-8 shadow-sm dark:border-white/10 sm:px-9',
                 isTwoFactorSetup
                   ? 'max-w-lg'
                   : 'max-w-md',
